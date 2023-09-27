@@ -10,8 +10,8 @@ jobs:
   test:
     env: # to interpolate an env var, use the following syntax ${{  }}, or simply put a $ sign in front
       MONGODB_CLUSTER_ADDRESS: cluster0.eeoxqzg.mongodb.net 
-      MONGODB_USERNAME: shiyuan
-      MONGODB_PASSWORD: VhKB5kuaPw0W1dn0
+      MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
+      MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
       PORT:
     environment: testing
     runs-on: ubuntu-latest
