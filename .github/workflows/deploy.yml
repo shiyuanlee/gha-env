@@ -8,8 +8,8 @@ env:
   MONGODB_DB_NAME: gha-demo
 jobs:
   test:
-    env:
-      MONGODB_CLUSTER_ADDRESS: cluster0.eeoxqzg.mongodb.net
+    env: # to interpolate an env var, use the following syntax ${{  }}, or simply put a $ sign in front
+      MONGODB_CLUSTER_ADDRESS: cluster0.eeoxqzg.mongodb.net 
       MONGODB_USERNAME: shiyuan
       MONGODB_PASSWORD: VhKB5kuaPw0W1dn0
       PORT:
@@ -31,7 +31,7 @@ jobs:
         run: npm test
       - name: Output information
         run: |
-          echo "MONGODB_USERNAME: ${{ env.MONGODB_USERNAME }}" # to interpolate an env var, use the following syntax ${{  }}, or simply put a $ sign in front
+          echo "MONGODB_USERNAME: ${{ env.MONGODB_USERNAME }}" 
   deploy:
     needs: test
     runs-on: ubuntu-latest
